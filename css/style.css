@@ -1,0 +1,527 @@
+@font-face {
+  font-family: 'advent_prolight';
+  src: url('adventpro-light.ttf') format('truetype');
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: 'advent_probold';
+  src: url('adventpro-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'AllerDisplay';
+  src: url('AllerDisplay.ttf') format('truetype');
+  font-weight: normal;
+}
+
+body {
+  background: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #111111;
+  width: 100%;
+  height: 82px;
+  z-index: 99;
+  color: #3DB39E;
+  border-bottom: 2px solid;
+  position: fixed;
+}
+
+.mainLogoLink {
+  width: 50%;
+  padding-left: 63px;
+  font-size: 50px;
+  color: white;
+  font-family: 'advent_probold';
+}
+
+.member {
+  width: 50%;
+  text-align: right;
+  padding-right: 63px;
+  font-family: 'advent_prolight';
+  color: white;
+  font-size: 30px;
+}
+
+.accountLink {
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.accountLink:hover {
+  color: #3DB39E;
+}
+
+.categoryContainer {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding-top: 55px;
+}
+
+.categoryTitle {
+  font-family: 'advent_probold';
+  color: white;
+  font-size: 100px;
+  writing-mode: tb-rl;
+  margin: auto;
+  z-index: 98;
+}
+
+.mainTitle {
+  font-family: 'advent_prolight';
+}
+
+.boldTitle {
+  font-family: 'advent_probold';
+}
+
+.colorTitle {
+  color: #3DB39E;
+}
+
+.animationContainer {
+  background-image: url('../img/animation.jpg');
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  height: 782px;
+}
+
+.horrorContainer {
+  background-image: url('../img/horror.jpg');
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  height: 782px;
+}
+
+.actionContainer {
+  background-image: url('../img/action.jpg');
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  height: 782px;
+  display: flex;
+}
+
+.comedyContainer {
+  background-image: url('../img/comedy.jpg');
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  display: flex;
+  height: 782px;
+}
+
+.categoryLinkAnimation {
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  display: flex;
+  z-index: 0;
+  position: absolute;
+}
+
+.categoryLinkHorror {
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  display: flex;
+  z-index: 0;
+  position: absolute;
+}
+
+.categoryLinkAction {
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  display: flex;
+  z-index: 0;
+  position: absolute;
+}
+
+.categoryLinkComedy {
+  width: 100%;
+  background-size: cover;
+  height: 718px;
+  display: flex;
+  z-index: 0;
+  position: absolute;
+}
+
+.opacityHoverAnimation, .opacityHoverHorror, .opacityHoverAction, .opacityHoverComedy {
+  width: 25%;
+  position: relative;
+  z-index: 50;
+  transition: all 1s;
+}
+
+.opacityHoverAnimation:hover {
+  position: relative;
+  transition: 0.7s;
+  opacity: 0.7;
+}
+
+.opacityHoverHorror:hover {
+  position: relative;
+  transition: 0.7s;
+  opacity: 0.7;
+}
+
+.opacityHoverAction:hover {
+  position: relative;
+  transition: 0.7s;
+  opacity: 0.7;
+}
+
+.opacityHoverComedy:hover {
+  position: relative;
+  transition: 0.7s;
+  opacity: 0.7;
+}
+
+.box {
+  width: 40%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 46px;
+}
+
+.img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.img:hover {
+  opacity: 0.7;
+}
+
+.filmsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 63px;
+  padding-right: 63px;
+}
+
+.boxTitle {
+  color: white;
+  font-family: 'advent_prolight';
+  font-size: 20px;
+}
+
+.boxText {
+  color: white;
+  margin-bottom: 5px;
+  font-family: 'AllerDisplay';
+  font-size: 20px;
+  color: #3DB39E;
+}
+
+.boxDesc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterTextHorror {
+  color: white;
+  font-family: 'advent_prolight';
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.filterTextAll {
+  color: white;
+  font-family: 'advent_prolight';
+  cursor: pointer;
+}
+
+.filterTextAnimation {
+  color: white;
+  font-family: 'advent_prolight';
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.filterTextAction {
+  margin-left: 10px;
+  color: white;
+  font-family: 'advent_prolight';
+  cursor: pointer;
+}
+
+.filterTextComedy {
+  color: white;
+  font-family: 'advent_prolight';
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.filterTextSelected {
+  color: #3DB39E;
+  width: 75px;
+  font-family: 'advent_prolight';
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 63px;
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 30px;
+}
+
+.subLink {
+  color: white;
+}
+
+.subLink:hover {
+  color: #3DB39E;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-family: 'advent_prolight';
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  margin-left: 37%;
+  letter-spacing: 1px;
+}
+
+.footerLink {
+  color: white;
+  transition: 0.3s;
+}
+
+.footerLink:hover {
+  color: #3DB39E;
+}
+
+.footerText {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.heart {
+  color: red;
+  font-size: 20px;
+}
+
+ .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 98%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal_overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal_content {
+  width: 90%;
+  margin-top: 100px;
+  background: #111111;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.playerContainer {
+  position: relative;
+  width: 669px;
+  height: 376px;
+  margin-right: 10px;
+}
+
+.video {
+  width: 669px;
+}
+
+.barPlayer {
+  position: absolute;
+  width: 100%;
+  height: 43px;
+  bottom: 0px;
+  z-index: 9999999999;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.barPlayer-Fils {
+  display: flex;
+  align-items: center;
+}
+
+.play-button {
+  margin-left: 10px;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 20px;
+  border-color: transparent transparent transparent black;
+  transition: 350ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+}
+
+.play-button.paused {
+  border-style: double;
+  border-width: 0px 0 0px 15px;
+}
+
+.play-button:hover {
+  border-color: transparent transparent transparent #3DB39E;
+}
+
+.stop-button {
+  background: black;
+  width: 18px;
+  height: 18px;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 350ms all ease;
+}
+
+.stop-button:hover {
+  background: #3DB39E;
+  transition: 350ms all ease;
+}
+
+.progress {
+  height: 10px;
+  width: 72%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  input.video__slider[type='range'] {
+    overflow: hidden;
+    cursor: pointer;
+    width: 80px;
+    -webkit-appearance: none;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  input.video__slider[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: pointer;
+    background: black;
+    box-shadow: -80px 0 0 80px #3DB39E;
+  }
+  input.inputTime[type='range'] {
+    overflow: hidden;
+    width: 100%;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transform: translate(-2px, -2px);
+  }
+  input.inputTime[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 10px;
+    cursor: pointer;
+    background: black;
+    box-shadow: -669px 0 0 669px #3DB39E;
+  }
+  .fullScreen {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    transition: 350ms all ease;
+    width: 20px;
+    height: 20px;
+  }
+  .fullScreen:hover {
+    transition: 350ms all ease;
+    background: #3DB39E;
+  }
+  .myvideo:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+  }
+  ::-webkit-media-controls {
+    display: none;
+  }
+}
+
+.timer {
+  font-family: 'AllerDisplay';
+  color: black;
+}
+
+.fullbar {
+  width: 669px;
+  height: 10px;
+  background: grey;
+}
+
+.inputTime {
+  width: 100%;
+}
+
+.barPlayer {
+  transition: opacity 1.2s ease;
+}
+
+.descriptionText {
+  color: white;
+  font-family: 'advent_prolight';
+  letter-spacing: 1px;
+  line-height: 25px;
+  font-size: 18px;
+}
+
+.boldP {
+  font-family: 'advent_probold';
+}
+
+.descP {
+  display: inline-block;
+}
+
+.blueText {
+  color: #3DB39E;
+  font-family: 'advent_probold';
+}

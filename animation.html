@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <title>Filmed</title>
+  <script src="js/data.js" charset="utf-8"></script>
+  <script src="js/modal.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <div class="mainLogoLink">
+        <a class="mainTitle" href="index.html"><span class="boldTitle">F</span>ILM<span class="colorTitle">ED</span></a>
+      </div>
+      <div class="member">
+        <a class="accountLink" href="#">Account</a>
+    </section>
+    </div>
+  </header>
+
+<div class="filterContainer">
+  <p class="filterTextAll secondFilter">All</p>
+  <p class="filterTextAnimation secondFilter">Animation</p>
+  <p class="filterTextHorror secondFilter">Horror</p>
+  <p class="filterTextAction secondFilter">Action</p>
+  <p class="filterTextComedy secondFilter">Comedy</p>
+</div>
+
+  <div class="filmsContainer">
+  </div>
+
+  <div class="modal hidden">
+    <div class="modal_overlay"></div>
+      <div class="modal_content">
+      </div>
+  </div>
+
+  <footer>
+    <div class="footerLinks">
+    <a class="footerLink" href="">terms and conditions</a>
+    <a class="footerLink" href="">discover</a>
+    <a class="footerLink" href="">about us</a>
+    <a class="footerLink" href="">security</a>
+    </div>
+    <p class="footerText">made with <span class="heart">&hearts;</span> by group 19</p>
+  </footer>
+
+  <script>
+
+    var films = document.querySelector('.filmsContainer');
+    for (let index = 0; index < data.films.length; index++) {
+      var box = document.createElement('div');
+      box.classList.add('box');
+      box.innerHTML += '<div class="boxDesc">' + '<h4 class="boxTitle">' + data.films[index].title + '</h4>' + '<p class="boxText">' + data.films[index].duration + '</p>';
+      var img = document.createElement('img');
+      img.src = data.films[index].img
+      img.classList.add('img');
+      box.appendChild(img);
+      films.appendChild(box);
+      if (data.films[index].category === 'Animation') {
+        box.style.display = 'block';
+      } else {
+        box.style.display = 'none';
+      }
+    };
+    var animation = document.querySelector('.filterTextAnimation');
+    animation.style.color = "#3DB39E";
+    var all = document.querySelector('.filterTextAll');
+    var action = document.querySelector('.filterTextAction');
+    var horror = document.querySelector('.filterTextHorror');
+    var comedy = document.querySelector('.filterTextComedy');
+    var divbox = document.querySelectorAll('.box');
+    all.addEventListener('click', function() {
+      for (var i = 0; i < divbox.length; i++) {
+        divbox[i].style.display = 'block';
+        animation.style.color = "white";
+        horror.style.color = "white";
+        action.style.color = "white";
+        comedy.style.color = "white";
+        all.style.color = "#3DB39E";
+      }
+      });
+      horror.addEventListener('click', function() {
+        for (var i = 0; i < divbox.length; i++) {
+          if (data.films[i].category === 'Horror') {
+            divbox[i].style.display = 'block';
+          } else {
+            divbox[i].style.display = 'none';
+          }
+          }
+          animation.style.color = "white";
+          horror.style.color = "#3DB39E";
+          action.style.color = "white";
+          comedy.style.color = "white";
+          all.style.color = "white";
+    });
+    animation.addEventListener('click', function() {
+      for (var i = 0; i < divbox.length; i++) {
+        if (data.films[i].category === 'Animation') {
+          divbox[i].style.display = 'block';
+        } else {
+          divbox[i].style.display = 'none';
+        }
+        }
+        animation.style.color = "#3DB39E";
+        horror.style.color = "white";
+        action.style.color = "white";
+        comedy.style.color = "white";
+        all.style.color = "white";
+  });
+  action.addEventListener('click', function() {
+    for (var i = 0; i < divbox.length; i++) {
+      if (data.films[i].category === 'Action') {
+        divbox[i].style.display = 'block';
+      } else {
+        divbox[i].style.display = 'none';
+      }
+      }
+      animation.style.color = "white";
+      horror.style.color = "white";
+      action.style.color = "#3DB39E";
+      comedy.style.color = "white";
+      all.style.color = "white";
+});
+  comedy.addEventListener('click', function() {
+    for (var i = 0; i < divbox.length; i++) {
+      if (data.films[i].category === 'Comedy') {
+        divbox[i].style.display = 'block';
+      } else {
+        divbox[i].style.display = 'none';
+      }
+      }
+      animation.style.color = "white";
+      horror.style.color = "white";
+      action.style.color = "white";
+      comedy.style.color = "#3DB39E";
+      all.style.color = "white";
+  });
+
+   var azerty = document.querySelectorAll('.box');
+var tmpfilm = {};
+var box = document.querySelectorAll('.box');
+var modal = document.querySelector('.modal');
+var overlay = document.querySelector('.modal_overlay');
+var modalcontent = document.querySelector('.modal_content');
+for (let b = 0; b < azerty.length; b++) {
+    azerty[b].addEventListener('click', function (event){
+      for (var v = 0; v < data.films.length; v++) {
+        if (event.target.attributes[0].value === data.films[v].img) {
+          tmpfilm = data.films[v]
+          console.log(data.films[v].src);
+          modalcontent.innerHTML = '<div class="playerContainer"><video class="video" src="./videos/' + data.films[v].src + '"></video><div class="barPlayer"><input type="range" class="inputTime"><div class="barPlayer-Fils"><div class="play-button"></div><div class="play-pause"></div><div class="stop-button"></div><input class="video__slider" type="range" min="0" max="100" step="0.01" value="100" /><p class="timer"></p><img class="fullScreen" src="img/fullscreen.png" /></div></div></div><div class="descriptionText">' + '<p class="descP"><span class="boldP">t</span>itle:</p>' + ' ' + data.films[v].title + '<br>' + '<p class="descP"><span class="boldP">d</span>uration:</p>' + ' ' + data.films[v].duration + '<br>' + '<p class="descP"><span class="boldP">a</span>uthor:</p>' + ' ' +
+           data.films[v].author +  '<br>' + '<p class="descP"><span class="boldP">y</span>ear:</p>' + ' ' + data.films[v].year +  '<br>' + '<p class="descP"><span class="boldP">a</span>udio language:</p>' + ' ' + data.films[v].audio_language +  '<br>' + '<p class="descP"><span class="boldP">r</span>ating:</p>' + ' ' + '<span class="blueText">' +
+           data.films[v].rating + '</span>' + '/5' + '<br>' + '<p class="descP"><span class="boldP">d</span>escription:</p>' + ' ' + data.films[v].description + '</div>';
+
+          if (modalcontent.innerHTML !== "")
+          {
+            var inputTime = document.querySelector('.inputTime');
+            var video = document.querySelector('.video');
+            var timer = document.querySelector('.timer');
+            var player = document.querySelector('.playerContainer');
+            var barHide = document.querySelector('.barPlayer');
+            var fullscreenCounter = 0;
+            var playButton = document.querySelector('.play-button');
+            var fullScreen = document.querySelector('.fullScreen');
+            var btnStop = document.querySelector('.stop-button');
+            var volume = document.querySelector('.video__slider');
+            var progress = document.querySelector('.progress')
+            var progressBar = document.querySelector('.progress_fill');
+            var toggle = document.querySelector('.toggle');
+
+            function mousemove() {
+              barHide.style.opacity = 1;
+              setTimeout(function() {
+                barHide.style.opacity = 0;
+              }, 5000);
+            }
+
+            function FullScreen() {
+              if (fullscreenCounter == 0) {
+                video.webkitRequestFullscreen();
+                fullscreenCounter = 1;
+              } else {
+                video.webkitExitFullscreen();
+                fullscreenCounter = 0;
+              }
+            }
+
+            function handleRangeUpdate() {
+              var value = this.value / 100;
+              video.volume = value;
+
+            };
+
+            inputTime.value = '0';
+          video.addEventListener('timeupdate', function() {
+            inputTime.value = video.currentTime / video.duration * 100;
+
+          });
+          inputTime.addEventListener('input', function() {
+            video.currentTime = inputTime.value * video.duration / 100;
+          });
+          video.addEventListener('loadeddata', function() {
+            timer.textContent = '0:00 /' + TimeConvert(video.duration)
+          });
+          timerLoop = setInterval(function() {
+            timer.textContent = TimeConvert(video.currentTime) + '/' + TimeConvert(video.duration)
+
+          }, 100)
+          player.addEventListener('mousemove', mousemove);
+          barHide.addEventListener('mousemove', mousemove);
+          fullScreen.addEventListener('click', FullScreen);
+          playButton.addEventListener('click', function() {
+            playButton.classList.toggle('paused');
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+
+          btnStop.addEventListener('click', function() {
+            if (video.paused === false) {
+              video.pause();
+              playButton.classList.remove('paused');
+            }
+
+            video.currentTime = 0;
+          });
+          volume.addEventListener('change', handleRangeUpdate);
+          volume.addEventListener('mousemove', handleRangeUpdate);
+          video.addEventListener('click', function() {
+            playButton.classList.toggle('paused');
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+          console.log(modalcontent.innerHTML);
+      }
+      };
+    }});
+   }
+
+box.forEach(function(els) {
+   els.addEventListener('click', function() {
+       modal.classList.remove('hidden');
+       console.log('Aaf');
+    });
+ });
+
+   overlay.addEventListener('click', function() {
+       modal.classList.add('hidden');
+  });
+
+
+  //MODAL FIN
+
+  // var barUp = document.querySelector('.barPlayer');
+  //  video.addEventListener('click', togglePlay);
+  // video.addEventListener('play', updateButton);
+  // video.addEventListener('pause', updateButton);
+
+
+  var TimeConvert = function(time) {
+    mins = Math.floor((time % 3600) / 60);
+    secs = Math.floor(time % 60);
+    if (secs < 10) {
+      secs = "0" + secs;
+    }
+    return mins + ':' + secs;
+  }
+
+
+  // video.addEventListener('mouseleave', function() {
+  //   barHide.style.opacity = "0";
+  // });
+  //
+  // video.addEventListener('mouseover', function() {
+  //   barHide.style.opacity = "1";
+  // });
+  // barHide.addEventListener('mouseleave', function() {
+  //   barHide.style.opacity = "0";
+  // });
+  //
+  // barHide.addEventListener('mouseover', function() {
+  //   barHide.style.opacity = "1";
+  //
+  // });
+
+
+
+
+  </script>
+
+  <script src="js/lecteur.js"></script>
+</body>
+
+</html>
